@@ -12,6 +12,7 @@ def freqQuery(queries):
     freq_counts = defaultdict(int)
     answers = []
     for i, j in queries:
+        print(freq_counts)
         if i == 1:
         # O(1)
             if j in val_counts:
@@ -53,4 +54,3 @@ def freqQuery(queries):
 
 if __name__ == '__main__':
     print(freqQuery([(1,1), (2,2), (3,2), (1,1), (1,1),(2,1),(3,2)]))
-
