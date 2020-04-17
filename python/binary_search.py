@@ -30,9 +30,35 @@ def binary_search(arr, target):
     # If at the time the target is not found, then it never existed in the array
     return -1
 
+def binary_search_recursive(arr, target, low, high):
+    # Get the middle index of the array
+    mid = (low+high) // 2
 
+    # While the end of the array is not reached
+    if (low <= high):
+        if (len(arr) == 0):
+            return -1
+        # Check if the item in the middle is the target
+        elif (arr[mid] == target):
+            # The item is the target, return 1
+            return 1
+        # Check if the target is greater than the item in the middle
+        # This means that the target is at the LHS
+        elif target > arr[mid]:
+            low = mid + 1
+            # if the target is less than the item in the middle
+            # Then the target is at the RHS
+            return binary_search_recursive(arr, target,low,high)
+        else:
+            # set the highest index to the item before the middle
+            high = mid - 1
+            return binary_search_recursive(arr, target,low,high)
+    else:
+        # If at the time the target is not found, then it never existed in the array
+        return -1
+    
 
 if __name__ == '__main__':
     arr = [i for i in range(10)]
-   
+    print(binary_search_recursive(arr,11, 0, len(arr)-1))
     print(binary_search(arr,11))
