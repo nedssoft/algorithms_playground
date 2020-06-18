@@ -10,9 +10,8 @@ def fibonacci_sequence(n):
     if (n == 2):
         return sequence
     
-    while a < n:
+    while n > len(sequence):
         a,b = b,a+b
-        print(a)
         sequence.append(b)
     return sequence
 
