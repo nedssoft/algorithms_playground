@@ -24,14 +24,14 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         n = len(s)
         d = {}
-        left = 0
+        i = 0
         res = 0
-        for i in range(n):
-            char = s[i]
+        for j in range(n):
+            char = s[j]
             if char in d:
-                left = max(left, d[char])
-            res = max(res, i - left + 1)
-            d[char] = i + 1
+                i = max(i, d[char])
+            res = max(res, j - i + 1)
+            d[char] = j + 1
         return res
 
 

@@ -24,7 +24,7 @@ def flood_fill(image: List[List[int]], start: Tuple[int, int], replacement_color
       n_col = col_delta[i] + col
 
       if 0<= n_row < num_rows and 0<= n_col < num_cols:
-        if not image[r][c] == image[n_row][n_col]: continue
+        if image[r][c] != image[n_row][n_col]: continue
         res.append((n_row, n_col))
     return res
 
