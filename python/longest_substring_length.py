@@ -33,7 +33,21 @@ class Solution:
             res = max(res, j - i + 1)
             d[char] = j + 1
         return res
+    def lengthOfLongestSubstring2(self, s: str) -> int:
+        n = len(s)
+        l = r = longest = 0
+        w = set()
+        while r < n:
+            if s[r] not in w:
+                w.add(s[r])
+                r += 1
+            else:
+                w.remove(s[l])
+                l +=1
+            longest = max(longest, r - l)
+        return longest
 
 
 sol = Solution()
 print(sol.lengthOfLongestSubstring("abcabcbb"))
+print(sol.lengthOfLongestSubstring2("abcabcbb"))
